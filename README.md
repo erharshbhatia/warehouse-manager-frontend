@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AutoReturn.js: Handles the creation of sales returns automatically based on rejected items and existing sales invoices.
 
-## Available Scripts
+CreateInvoice.js: Allows users to create new sales invoices by selecting items from the inventory.
 
-In the project directory, you can run:
+Inventory.js: Displays the current inventory and allows users to reset the inventory and invoices.
 
-### `npm start`
+InventoryManagement.js: Manages the creation and updating of inventory items, including quantity adjustments.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Routes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The application uses react-router-dom for navigation. The following routes are defined:
 
-### `npm test`
+/: Displays the Inventory component.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+/manage-inventory: Displays the InventoryManagement component.
 
-### `npm run build`
+/create-invoice: Displays the CreateInvoice component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+/auto-return: Displays the AutoReturn component.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Usage
 
-### `npm run eject`
+Inventory: View all inventory items, reset inventory and invoices.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Manage Inventory: Create new inventory items or update existing ones.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create Invoice: Generate new sales invoices.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Auto Return: Automatically create sales returns for rejected items.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+API Integration
+Endpoints used in the application:
 
-## Learn More
+GET /api/items: Fetch all inventory items.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+POST /api/items: Create a new inventory item.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+PUT /api/items/:itemCode: Update an existing inventory item.
 
-### Code Splitting
+PATCH /api/items/:itemCode: Update the quantity of an inventory item.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+POST /api/items/reset-inventory: Reset the entire inventory and related invoices.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+POST /api/returns/auto-create: Automatically create sales returns based on rejected items.
